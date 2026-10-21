@@ -1,14 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FieldCanvas } from "@/components/field-canvas";
 import { SwarmCanvas } from "@/components/swarm-canvas";
+import { wordLines } from "@/lib/field-math";
 import type { Product } from "@/content/site";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
-// Featured work: the swarm stays in view and rebuilds itself into the mark of
+// Featured work: the 3D swarm stays in view and rebuilds itself into the mark of
 // whichever product is being read; the column beside it scrolls.
 export function WorkScene({ products }: { products: Product[] }) {
   const [active, setActive] = useState(0);
+  // The 3D field needs float render targets; without them use the v1 swarm.
+  const [legacy, setLegacy] = useState(false);
   const panels = useRef<(HTMLElement | null)[]>([]);
   const stage = useRef<HTMLDivElement>(null);
 
@@ -51,16 +55,27 @@ export function WorkScene({ products }: { products: Product[] }) {
   return (
     <div className="work-grid">
       <div ref={stage} className="work-stage">
-        <SwarmCanvas
-          className="size-full"
-          shape={shape}
-          count={{ desktop: 11000, phone: 4500 }}
-          cool="#a7ff9c"
-          hot="#ff6a2e"
-          fill={0.78}
-          label={`The ${current.name} mark, drawn in particles`}
-          fallback={null}
-        />
+        {legacy ? (
+          <SwarmCanvas
+            className="size-full"
+            shape={shape}
+            count={{ desktop: 11000, phone: 4500 }}
+            cool="#a7ff9c"
+            hot="#ff6a2e"
+            fill={0.78}
+            label={`The ${current.name} mark, drawn in particles`}
+            fallback={null}
+          />
+        ) : (
+          <FieldCanvas
+            className="block size-full"
+            shape={shape.kind === "text" ? { kind: "text", lines: wordLines(shape.text) } : shape}
+            label={`The ${current.name} mark, drawn in particles`}
+            fill={0.78}
+            budget="scene"
+            onReady={(ok) => !ok && setLegacy(true)}
+          />
+        )}
         <p className="work-stage-name text-body text-night-muted" aria-hidden>
           {current.name}
         </p>

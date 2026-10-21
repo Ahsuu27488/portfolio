@@ -47,7 +47,7 @@ these.
 
 ## Brand Commitments
 
-Name: Muhammad Ahsan; wordmark "Ahsan". Featured (confirmed): Taskvane, Chronos,
+Name: Muhammad Ahsan; wordmark "Muhammad Ahsan" (owner, 2026-10-21). Featured (confirmed): Taskvane, Chronos,
 Foreman, edit-recreator. Owner's binding requirement: a 3D/particle hero that
 competes with musa.ai — but faster, mobile-friendly, and with real content.
 
@@ -58,7 +58,7 @@ competes with musa.ai — but faster, mobile-friendly, and with real content.
 - Chronos live app screenshot (evolution-of-todo-tau.vercel.app).
 - edit-recreator side-by-side demo video (docs/demo.mp4).
 - Foreman README facts (CI, v0.4.3, supported worker CLIs).
-- PCAO-F study pack live page; scraper-demo sample output image.
+- Scraper-demo sample output image.
 - Absent, never fabricate: testimonials, client logos, reviews, revenue,
   download counts, star counts.
 

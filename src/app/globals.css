@@ -13,6 +13,7 @@
   --color-night-ink: oklch(0.965 0.008 145);
   --color-night-muted: oklch(0.76 0.01 150);
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-mark: var(--font-mona), var(--font-hanken), ui-sans-serif, sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -179,9 +180,60 @@ body {
   grid-template-rows: auto minmax(0, 1fr);
   padding-top: max(13svh, 88px);
   padding-bottom: 5svh;
+  overflow: hidden;
+  /* Horizontal drags turn the swarm; vertical swipes still scroll the page. */
+  touch-action: pan-y;
+}
+.hero > :not(.hero-stage) {
+  position: relative;
+  z-index: 1;
+}
+.hero-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .hero h1 .pale {
   color: var(--color-night-muted);
+}
+.hero-swarm {
+  display: grid;
+  place-items: center;
+  user-select: none;
+}
+.hero-fallback {
+  display: none;
+  color: var(--color-mint);
+  font-size: clamp(44px, 8vw, 150px);
+  line-height: 0.9;
+  text-align: center;
+}
+.hero[data-field="off"] .hero-fallback {
+  display: block;
+}
+.hero-type {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+}
+.hero-type input {
+  width: 100%;
+  height: 48px;
+  background: transparent;
+  color: var(--color-night-ink);
+  border: 0;
+  border-bottom: 2px solid color-mix(in oklch, var(--color-night-muted) 45%, transparent);
+  font-size: 17px;
+  transition: border-color 200ms var(--ease-out);
+}
+.hero-type input::placeholder {
+  color: var(--color-night-muted);
+}
+.hero-type input:focus {
+  outline: none;
+  border-bottom-color: var(--color-mint);
 }
 .hero-body {
   display: grid;
@@ -218,6 +270,8 @@ body {
   position: relative;
   height: 52svh;
   min-height: 300px;
+  /* Horizontal drags turn the mark; vertical swipes still scroll the page. */
+  touch-action: pan-y;
 }
 .work-stage-name {
   display: none;
@@ -530,15 +584,21 @@ body {
   transform: scale(0.95);
 }
 
+/* Wordmark face (Mona Sans, heavy and wide): header, footer, hero swarm */
+.wordmark {
+  font-family: var(--font-mark);
+  font-weight: 900;
+  font-stretch: 125%;
+  letter-spacing: -0.01em;
+}
+
 /* Footer */
 .footer-name {
-  font-size: clamp(96px, 27vw, 460px);
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  font-weight: 500;
-  white-space: nowrap;
+  font-size: clamp(40px, 11vw, 200px);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
   overflow: hidden;
-  margin-bottom: -0.12em;
+  margin-bottom: -0.1em;
 }
 
 /* Section entrances (Emil: transform + opacity, ease-out, < 300ms each) */

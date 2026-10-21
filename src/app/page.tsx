@@ -2,6 +2,7 @@ import { BusinessPreview } from "@/components/business-preview";
 import { ChapterHeader } from "@/components/chapter-header";
 import { ContactForm } from "@/components/contact-form";
 import { HeroSwarm } from "@/components/hero-swarm";
+import { HeroType } from "@/components/hero-type";
 import { Reveals } from "@/components/reveals";
 import { WorkScene } from "@/components/work-scene";
 import { about, aboutClose, contact, hero, index, live, person, products, services, toolbox } from "@/content/site";
@@ -21,14 +22,20 @@ export default function Home() {
       <ChapterHeader wordmark={person.wordmark} action={hero.action} href="#contact" />
       <main id="top">
         <section data-chapter="night" className="hero frame" aria-labelledby="hero-title">
+          <HeroSwarm className="hero-stage" />
           <h1 id="hero-title" className="text-display">
             <span className="pale block">{hero.lines[0]}</span>
             <span className="block">{hero.lines[1]}</span>
           </h1>
           <div className="hero-body">
-            <HeroSwarm className="hero-swarm" />
+            <div className="hero-swarm" data-hero-focus>
+              <p className="hero-fallback wordmark" aria-hidden>
+                {person.wordmark}
+              </p>
+            </div>
             <div className="hero-foot">
               <p className="text-lead">{hero.sentence}</p>
+              <HeroType label={hero.typeLabel} placeholder={hero.typePlaceholder} />
               <a href="#contact" className="btn">
                 {hero.action}
               </a>
@@ -244,7 +251,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <p className="footer-name frame mt-20" aria-hidden>
+        <p className="footer-name wordmark frame mt-20" aria-hidden>
           {person.wordmark}
         </p>
         <div className="frame mt-10 flex flex-wrap justify-between gap-4 text-small text-night-muted">

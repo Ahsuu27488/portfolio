@@ -4,7 +4,7 @@
 
 export const person = {
   name: "Muhammad Ahsan",
-  wordmark: "Ahsan",
+  wordmark: "Muhammad Ahsan",
   email: "ahsanraj2748@gmail.com",
   github: "https://github.com/Ahsuu27488",
   linkedin: "https://www.linkedin.com/in/muhammad-ahsan-653298289/",
@@ -15,6 +15,8 @@ export const hero = {
   sentence:
     "I’m Muhammad Ahsan. I build websites, AI chatbots and automations for small businesses — and I ship products of my own.",
   action: "Start a project",
+  typeLabel: "Write a word in particles",
+  typePlaceholder: "Type a name, it rewrites itself",
 };
 
 export type ShapeId = "name" | "taskvane" | "chronos" | "foreman" | "editRecreator";
@@ -180,10 +182,10 @@ export const services = {
       height: 900,
     },
     {
-      src: "/work/pcao-f.webp",
-      alt: "PCAO-F study pack: overview with exam facts, language switch and study plan",
-      caption: "A one-file study app in English, Roman Urdu and Urdu",
-      href: "https://ahsuu27488.github.io/pcao-f-study-pack/",
+      src: "/work/chronos.webp",
+      alt: "Chronos home page: an AI assistant for tasks, with voice commands and smart search in English and Urdu",
+      caption: "An AI assistant I built and run: Chronos, live on Vercel",
+      href: "https://evolution-of-todo-tau.vercel.app",
       width: 1440,
       height: 900,
     },

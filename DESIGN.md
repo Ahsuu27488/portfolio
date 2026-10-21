@@ -33,7 +33,9 @@ transition) — the signature move besides the swarm.
 
 ## Type
 
-One family: **Hanken Grotesk** 400/500 (next/font). Five steps only:
+Text family: **Hanken Grotesk** 400/500 (next/font). Wordmark only
+("Muhammad Ahsan" in the header, the footer and the hero swarm): **Mona Sans**
+900, wide (`wdth` axis; `.wordmark`). Five steps only:
 
 | Step | Size | Use |
 |---|---|---|
@@ -62,7 +64,12 @@ Headlines: two lines or fewer at every width.
 
 ## 3D guardrails
 
-Plain three.js, one `Points` mesh per canvas, ≤16k particles desktop / ≤6k
-phone, DPR ≤ 1.5, render only while visible and the tab is active, mounted
-after first paint. HTML text is always the LCP; without WebGL the page shows
-the same words as text.
+Plain three.js. The hero and the work scene use the 3D field (`lib/field.ts`,
+v2): GPGPU spring simulation (position + velocity float textures), real orbit
+camera (fly-in, idle sway, drag to turn), pointer pushes along its ray, click
+scatters, a sparse star layer for depth. Budget: 128² particles desktop (96²
+on ≤4 cores), 72² phone; the work scene gets 80% of that. DPR ≤ 1.5, render
+only while visible and the tab is active, mounted after first paint. Reduced
+motion: one still frame, no sim. No float render targets: the work scene falls
+back to the v1 swarm (`lib/swarm.ts`), the hero shows the wordmark as text.
+HTML text is always the LCP.

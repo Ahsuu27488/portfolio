@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Mona_Sans } from "next/font/google";
 import { hero, person } from "@/content/site";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({ variable: "--font-hanken", subsets: ["latin"], weight: ["400", "500"] });
+// The wordmark face: heavy and wide (wdth 125). Also what the hero swarm writes.
+const mona = Mona_Sans({ variable: "--font-mona", subsets: ["latin"], axes: ["wdth"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ahsandev.site"),
@@ -22,7 +24,7 @@ export const viewport: Viewport = { themeColor: "#151917" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${hanken.variable} antialiased`}>
+    <html lang="en" className={`${hanken.variable} ${mona.variable} antialiased`}>
       <body>{children}</body>
     </html>
   );

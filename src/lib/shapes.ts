@@ -100,6 +100,87 @@ export const marks: Record<"taskvane" | "chronos" | "foreman" | "editRecreator",
 export type Shape = { kind: "mark"; draw: Draw } | { kind: "text"; text: string };
 
 /**
+ * Sampler for the 3D field: text goes through `sampleLines` (at `textScale` of
+ * the box), marks through `samplePoints` with a thickness added in z.
+ */
+export function sampleShape(
+  shape: { kind: "text"; lines: string[] } | { kind: "mark"; id: string },
+  count: number,
+  boxW: number,
+  boxH: number,
+  family: string,
+  textScale = 1,
+): Float32Array {
+  if (shape.kind === "text") return sampleLines(shape.lines, count, boxW, boxH, family, textScale);
+  const draw = marks[shape.id as keyof typeof marks];
+  const out = samplePoints({ kind: "mark", draw }, count, boxW, boxH, family);
+  const depth = Math.min(boxW, boxH) * 0.07;
+  for (let i = 2; i < out.length; i += 3) out[i] = (Math.random() - 0.5) * depth;
+  return out;
+}
+
+/**
+ * Samples `count` points from lines of display text (heavy, expanded) fitted
+ * into `boxW × boxH` world units around the origin. Letters get a thickness in
+ * z so the word has a body when the camera turns. Returns xyz triples.
+ */
+export function sampleLines(
+  lines: string[],
+  count: number,
+  boxW: number,
+  boxH: number,
+  family: string,
+  scale = 1,
+): Float32Array {
+  const w = 1024;
+  const h = Math.max(64, Math.round((w * boxH) / boxW));
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
+  ctx.fillStyle = "#fff";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+
+  const lead = 0.96;
+  // Setting `font` resets `fontStretch`, so set both every time.
+  const setSize = (s: number) => {
+    ctx.font = `900 ${s}px ${family}`;
+    ctx.fontStretch = "semi-expanded";
+  };
+  let size = (h * 0.92 * scale) / (lines.length * lead);
+  setSize(size);
+  const widest = Math.max(...lines.map((l) => ctx.measureText(l).width), 1);
+  size = Math.min(size, (size * w * 0.9 * scale) / widest);
+  setSize(size);
+  const top = h / 2 - ((lines.length - 1) * size * lead) / 2;
+  lines.forEach((l, i) => ctx.fillText(l, w / 2, top + i * size * lead + size * 0.04));
+
+  const data = ctx.getImageData(0, 0, w, h).data;
+  const hits: number[] = [];
+  for (let y = 0; y < h; y += 1) {
+    for (let x = 0; x < w; x += 1) {
+      if (data[(y * w + x) * 4 + 3] > 128) hits.push(x, y);
+    }
+  }
+
+  const out = new Float32Array(count * 3);
+  const n = hits.length / 2;
+  const depth = (size / h) * boxH * 0.1; // letter thickness, relative to letter height
+  for (let i = 0; i < count; i++) {
+    if (n === 0) {
+      out.set([(Math.random() - 0.5) * boxW, (Math.random() - 0.5) * boxH, 0], i * 3);
+      continue;
+    }
+    const j = Math.floor(Math.random() * n) * 2;
+    out[i * 3] = ((hits[j] + Math.random()) / w - 0.5) * boxW;
+    out[i * 3 + 1] = -((hits[j + 1] + Math.random()) / h - 0.5) * boxH;
+    out[i * 3 + 2] = (Math.random() - 0.5) * depth;
+  }
+  return out;
+}
+
+/**
  * Samples `count` points from a shape fitted ("contain") into a box of
  * `boxW × boxH` world units, centred on the origin. Returns xyz triples.
  * `font` is the CSS font family used for text shapes.

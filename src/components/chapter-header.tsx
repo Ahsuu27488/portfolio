@@ -19,7 +19,7 @@ export function ChapterHeader({ wordmark, action, href }: { wordmark: string; ac
   return (
     <header data-tone={tone} className="chapter-header fixed inset-x-0 top-0 z-30">
       <div className="frame flex h-16 items-center justify-between">
-        <a href="#top" className="text-body font-medium">
+        <a href="#top" className="wordmark text-[17px]">
           {wordmark}
         </a>
         <a href={href} className="btn btn-sm">
