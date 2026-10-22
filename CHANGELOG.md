@@ -8,6 +8,13 @@
 - About: the owner's real photo (`public/ahsan.webp`, 480×600, 23 KB), square,
   beside the text on desktop and above it on phones. Owner approved showing it
   (PRODUCT.md updated).
+- SEO basics (audit: /robots.txt and /sitemap.xml were 404, share image was a
+  Taskvane screenshot): `robots.ts` and `sitemap.ts` metadata routes, and a
+  1200×630 `opengraph-image.tsx` card ("Muhammad Ahsan", "Software that ships.",
+  "Websites, AI chatbots, automation") in night + mint with Mona Sans 900 wide
+  and Hanken Grotesk 500 (static TTFs in `assets/fonts/`, OFL). Layout metadata
+  adds the Twitter large card, `og:site_name` and a canonical URL; the
+  screenshot is no longer the share image. All three routes build static.
 
 ## 2026-10-21
 
