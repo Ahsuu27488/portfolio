@@ -1,6 +1,7 @@
 // Every word on the site lives here. Facts come from the owner's public repos;
 // nothing (clients, reviews, numbers) is invented. Owner-approved public info:
-// name, email, GitHub, LinkedIn. Not shown: age, location, family business.
+// name, email, GitHub, LinkedIn, and his photo (approved 2026-10-22).
+// Not shown: age, location, family business.
 
 export const person = {
   name: "Muhammad Ahsan",

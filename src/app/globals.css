@@ -49,6 +49,12 @@ body {
 [data-chapter="orange"] :focus-visible {
   outline-color: var(--color-ink);
 }
+.chapter-header[data-tone="mint"] :focus-visible,
+.chapter-header[data-tone="ground"] :focus-visible,
+.chapter-header[data-tone="grey"] :focus-visible,
+.chapter-header[data-tone="orange"] :focus-visible {
+  outline-color: var(--color-ink);
+}
 
 /* Five type steps (DESIGN.md) */
 .text-small {
@@ -127,6 +133,64 @@ body {
 .chapter-header[data-tone="grey"],
 .chapter-header[data-tone="orange"] {
   color: var(--color-ink);
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+.header-actions .header-icon + .header-icon {
+  margin-left: 4px;
+}
+.header-actions .btn {
+  margin-left: 8px;
+}
+.header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  outline-offset: -3px;
+  transition:
+    opacity 120ms var(--ease-out),
+    transform 120ms var(--ease-out);
+}
+.header-icon:active {
+  transform: scale(0.97);
+}
+@media (hover: hover) {
+  .header-icon:hover {
+    opacity: 0.7;
+  }
+}
+.chapter-header .wordmark,
+.chapter-header .btn {
+  white-space: nowrap;
+}
+/* Phones: wordmark, two icons and the button share one 64px row. */
+@media (max-width: 420px) {
+  .chapter-header .wordmark {
+    font-size: 15px;
+  }
+  .header-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .header-actions .header-icon + .header-icon {
+    margin-left: 0;
+  }
+  .header-actions .btn {
+    margin-left: 6px;
+  }
+  .chapter-header .btn-sm {
+    padding-inline: 10px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 369px) {
+  .header-icon {
+    display: none;
+  }
 }
 
 /* One button: square, mint fill */
@@ -518,6 +582,28 @@ body {
 }
 
 /* About */
+.about-grid {
+  display: grid;
+  gap: 24px;
+}
+.about-photo {
+  width: 160px;
+}
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 900px) {
+  .about-grid {
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: start;
+  }
+  .about-photo {
+    width: 240px;
+  }
+}
 .about-text {
   columns: 1;
   font-size: clamp(22px, 2.1vw, 32px);

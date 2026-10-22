@@ -41,6 +41,8 @@ these.
   and data cleaning. Starter prices from HQ `docs/business/strategy.md`.
 - Contact: email only — ahsanraj2748@gmail.com (confirmed public). Also the public
   GitHub (Ahsuu27488) and LinkedIn from his GitHub profile.
+- Photo: his real photo (the same DP as on Fiverr, Upwork and LinkedIn) may be
+  shown; owner approved 2026-10-22. Used in the About chapter (`public/ahsan.webp`).
 - Must NOT show (owner did not approve): his age, his city/region/country, the
   family shop website or anything about the family business.
 - No backend: contact opens a prefilled email.

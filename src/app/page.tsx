@@ -19,7 +19,13 @@ const dotFor: Record<string, string> = {
 export default function Home() {
   return (
     <>
-      <ChapterHeader wordmark={person.wordmark} action={hero.action} href="#contact" />
+      <ChapterHeader
+        wordmark={person.wordmark}
+        action={hero.action}
+        href="#contact"
+        github={person.github}
+        linkedin={person.linkedin}
+      />
       <main id="top">
         <section data-chapter="night" className="hero frame" aria-labelledby="hero-title">
           <HeroSwarm className="hero-stage" />
@@ -183,7 +189,18 @@ export default function Home() {
           <h2 id="about-title" className="sr-only">
             About Ahsan
           </h2>
-          <div data-reveal>
+          <div data-reveal className="about-grid">
+            <div className="about-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ahsan.webp"
+                alt="Muhammad Ahsan"
+                width={480}
+                height={600}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <p className="about-text">
               {about[0].map((part, i) =>
                 part.mark ? (
