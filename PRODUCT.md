@@ -38,12 +38,17 @@ these.
 ## Capabilities and Constraints
 
 - Services: websites (Next.js), AI chatbots, automations, Discord bots, scraping
-  and data cleaning. Starter prices from HQ `docs/business/strategy.md`.
-- Contact: email only — ahsanraj2748@gmail.com (confirmed public). Also the public
+  and data cleaning. Starter prices = the Basic package of each Fiverr gig
+  (Website $80, AI chatbot $50, Automation $40, Discord bot $15).
+- Contact: a form sent through Web3Forms (`NEXT_PUBLIC_WEB3FORMS_KEY`), falling
+  back to a prefilled email when the key is not set. Email shown:
+  ahsanraj2748@gmail.com (confirmed public). Also the public
   GitHub (Ahsuu27488) and LinkedIn from his GitHub profile.
 - Must NOT show (owner did not approve): his age, his city/region/country, the
   family shop website or anything about the family business.
-- No backend: contact opens a prefilled email.
+- No backend of our own.
+- Hire links: `contact.hire.fiverr` / `contact.hire.upwork` in `src/content/site.ts`
+  are empty and hidden until the owner fills them when his profiles go live.
 
 ## Brand Commitments
 
