@@ -15,8 +15,16 @@ export const metadata: Metadata = {
     title: `${person.name} — software that ships`,
     description: hero.sentence,
     url: "https://ahsandev.site",
+    siteName: person.name,
     type: "website",
-    images: [{ url: "/work/taskvane-overview.webp", width: 1600, height: 936, alt: "Taskvane, built by Muhammad Ahsan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${person.name} — software that ships`,
+    description: hero.sentence,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
