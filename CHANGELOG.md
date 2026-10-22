@@ -15,6 +15,16 @@
   and Hanken Grotesk 500 (static TTFs in `assets/fonts/`, OFL). Layout metadata
   adds the Twitter large card, `og:site_name` and a canonical URL; the
   screenshot is no longer the share image. All three routes build static.
+- Contact works on phones: a name/email/message form posted to Web3Forms
+  (`NEXT_PUBLIC_WEB3FORMS_KEY`, see `.env.example`) with sending/sent/error
+  states and a honeypot; without the key it opens a prefilled email as before,
+  so the live site keeps working until the owner adds the key. Logic in
+  `src/lib/contact.ts` with unit tests.
+- Prices now match the Fiverr gigs' Basic packages (Website $80, AI chatbot $50,
+  Automation $40, Discord bots $15), so buyers coming from Fiverr see one price.
+- `contact.hire.fiverr` / `.upwork` in `site.ts`: "Hire me on Fiverr / Upwork"
+  links show in the contact section only once a URL is filled (empty today).
+  Screenshots: `docs/screenshots/contact-prices/`.
 
 ## 2026-10-21
 

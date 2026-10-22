@@ -6,6 +6,7 @@ import { HeroType } from "@/components/hero-type";
 import { Reveals } from "@/components/reveals";
 import { WorkScene } from "@/components/work-scene";
 import { about, aboutClose, contact, hero, index, live, person, products, services, toolbox } from "@/content/site";
+import { hireLinks } from "@/lib/contact";
 
 export const ensureStatic = "navigation";
 
@@ -17,6 +18,7 @@ const dotFor: Record<string, string> = {
 };
 
 export default function Home() {
+  const hire = hireLinks(contact.hire);
   return (
     <>
       <ChapterHeader
@@ -241,6 +243,17 @@ export default function Home() {
                 </div>
               ))}
             </dl>
+            {hire.length > 0 ? (
+              <ul className="mt-8 flex flex-wrap gap-4">
+                {hire.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href} className="btn" target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         </section>
       </main>

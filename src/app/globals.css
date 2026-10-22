@@ -639,8 +639,7 @@ body {
   align-items: center;
   height: 64px;
   background: var(--color-ground);
-  padding-left: 20px;
-  padding-right: 8px;
+  padding-inline: 20px;
 }
 .contact-field:focus-within {
   outline: 2px solid var(--color-ink);
@@ -657,17 +656,23 @@ body {
 .contact-input::placeholder {
   color: var(--color-muted);
 }
-.contact-send {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  background: var(--color-ink);
-  color: var(--color-mint);
-  transition: transform 120ms var(--ease-out);
+.contact-area {
+  display: block;
+  width: 100%;
+  background: var(--color-ground);
+  padding: 16px 20px;
+  resize: vertical;
+  min-height: 140px;
+  border: 0;
+  outline: none;
+  color: var(--color-ink);
 }
-.contact-send:active {
-  transform: scale(0.95);
+.contact-area:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+.contact-area::placeholder {
+  color: var(--color-muted);
 }
 
 /* Wordmark face (Mona Sans, heavy and wide): header, footer, hero swarm */

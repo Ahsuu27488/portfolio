@@ -148,27 +148,37 @@ export const live = {
 export const services = {
   heading: "What it costs to start",
   sentence:
-    "Fixed starting prices, so you know before you write. Every project includes the code, and it’s yours.",
+    "Fixed starting prices, the same as my Fiverr gigs. Every project includes the code, and it’s yours.",
   plans: [
     {
       name: "Website",
-      price: "from $250",
-      rows: ["3–5 page site, mobile first", "About 7 days", "3 rounds", "Contact form, maps, WhatsApp button"],
+      price: "from $80",
+      rows: [
+        "1-page site, up to 6 sections, mobile first",
+        "3 days",
+        "2 rounds",
+        "Contact form, WhatsApp, Maps, SEO basics, live on your domain",
+      ],
     },
     {
       name: "AI chatbot",
-      price: "from $150",
-      rows: ["Answers from your own content", "About 5 days", "2 rounds", "Leads to email or Google Sheets"],
+      price: "from $50",
+      rows: [
+        "Answers from up to 10 pages or 1 FAQ doc",
+        "3 days",
+        "1 round",
+        "Your logo and colours, setup guide and handover video",
+      ],
       recommended: true,
     },
     {
       name: "Automation",
       price: "from $40",
       rows: [
-        "Discord bots, scrapers, data cleaning",
-        "2–6 days",
-        "2 rounds",
-        "Source code and a setup guide",
+        "One automation linking 2 apps. Discord bots from $15",
+        "3 days (Discord bot 2 days)",
+        "1 round",
+        "Runs on its own, source code and a setup guide",
       ],
     },
   ],
@@ -293,7 +303,14 @@ export const aboutClose = "Tell him what you need.";
 export const contact = {
   lines: ["Tell me what you need.", "I reply within a day."],
   placeholder: "A booking site for my salon…",
-  next: "This opens an email to Ahsan with your message in it.",
+  next: {
+    web3forms: "It goes straight to Ahsan’s inbox.",
+    mailto: "This opens an email to Ahsan with your message in it.",
+  },
+  sent: "Thanks, it’s sent. Ahsan will reply within a day.",
+  failed: "That didn’t go through. Try again, or",
+  // Fill when the profiles are public; empty = hidden.
+  hire: { fiverr: "", upwork: "" },
   rows: [
     { label: "Email", value: "ahsanraj2748@gmail.com", href: "mailto:ahsanraj2748@gmail.com" },
     { label: "GitHub", value: "github.com/Ahsuu27488", href: "https://github.com/Ahsuu27488" },
