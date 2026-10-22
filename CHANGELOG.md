@@ -2,6 +2,10 @@
 
 ## 2026-10-22
 
+- Fernwick Dental, a demo website for a fictional US clinic (https://demo-dental-teal-two.vercel.app,
+  HQ ADR-0007), is the first proof under the prices and in "Everything shipped"; it replaces the
+  family shop as small-business proof. The proof row now holds four items: 2x2 on phones and
+  tablets, one row from 1024 px.
 - Header: GitHub and LinkedIn icon links next to "Start a project" (audit: they
   were only at the bottom of the page); they take the chapter's ink and get an
   ink focus ring on light chapters.

@@ -185,6 +185,14 @@ export const services = {
   rowLabels: ["What you get", "Delivery", "Revisions", "Included"],
   proof: [
     {
+      src: "/work/demo-dental.webp",
+      alt: "Fernwick Dental, a demo website for a fictional dental clinic: big name, a forest photo, and a Book a visit button",
+      caption: "A clinic website I built as a demo (fictional business): Fernwick Dental",
+      href: "https://demo-dental-teal-two.vercel.app",
+      width: 1440,
+      height: 900,
+    },
+    {
       src: "/work/taskvane-site.webp",
       alt: "The Taskvane website: A better Task Manager for Windows 11, with a download button and an app screenshot",
       caption: "A product site I built and shipped: taskvane.ahsandev.site",
@@ -229,6 +237,7 @@ export const index: { heading: string; note: string; items: IndexItem[] } = {
     { name: "Keymap copier", kind: "Games", href: "https://github.com/Ahsuu27488/pubgm-flash-keymapping-gameloop" },
     { name: "WASD speed fix", kind: "Games", href: "https://github.com/Ahsuu27488/gameloop-pubgm-wasd-speed-fix" },
     { name: "Scoop bucket", kind: "Tools", href: "https://github.com/Ahsuu27488/scoop-bucket" },
+    { name: "Fernwick Dental (demo)", kind: "Web", href: "https://demo-dental-teal-two.vercel.app" },
     { name: "Furniro store", kind: "Web", href: "http://furniro-hackathon.netlify.app/" },
     { name: "BlogsTerra", kind: "Web", href: "http://blogsterra.netlify.app/" },
     { name: "Lead lifecycle", kind: "Web", href: "https://lead-lifecycle-overview000.netlify.app/" },
