@@ -32,7 +32,8 @@ unfamiliar Next.js API.
 
 ## Rules
 
-- Owner-approved public info only: name, email, GitHub, LinkedIn. Never add his
+- Owner-approved public info only: name, email, GitHub, LinkedIn, his photo
+  (`public/ahsan.webp`). Never add his
   age, location, or the family business. Never invent clients, reviews or numbers.
 - Follow `../../docs/design/workflow-brief.md` (ADR-0005): taste lint + inspect
   with 0 FAIL, screenshots at 1440/768/390 reviewed, Emil's motion rules.

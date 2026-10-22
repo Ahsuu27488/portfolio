@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-22
+
+- Header: GitHub and LinkedIn icon links next to "Start a project" (audit: they
+  were only at the bottom of the page); they take the chapter's ink and get an
+  ink focus ring on light chapters.
+- About: the owner's real photo (`public/ahsan.webp`, 480×600, 23 KB), square,
+  beside the text on desktop and above it on phones. Owner approved showing it
+  (PRODUCT.md updated).
+
 ## 2026-10-21
 
 - Hero v2 (owner: v1 looked like "a static picture with a cursor effect"):
